@@ -19,48 +19,7 @@ let project = Project(
       sources: ["TuistTest/Sources/**"],
       resources: ["TuistTest/Resources/**"],
       dependencies: [
-        .target(name: "Payments")
-      ]
-    ),
-    .target(
-      name: "SharedUI",
-      destinations: .iOS,
-      product: .framework,
-      bundleId: "co.rhysmorgan.TuistTest.sharedUI",
-      sources: ["SharedUI/Sources/**"],
-      dependencies: [
-        .package(product: "Stripe")
-      ]
-    ),
-    .target(
-      name: "SharedUITests",
-      destinations: .iOS,
-      product: .unitTests,
-      bundleId: "co.rhysmorgan.TuistTest.SharedUITests",
-      sources: ["SharedUI/Tests/**"],
-      dependencies: [
-        .target(name: "SharedUI")
-      ]
-    ),
-    .target(
-      name: "Payments",
-      destinations: .iOS,
-      product: .framework,
-      bundleId: "co.rhysmorgan.TuistTest.Payments",
-      sources: ["Payments/Sources/**"],
-      dependencies: [
-        .target(name: "SharedUI")
-      ]
-    ),
-    .target(
-      name: "PaymentsTests",
-      destinations: .iOS,
-      product: .unitTests,
-      bundleId: "co.rhysmorgan.TuistTest.PaymentsTests",
-      sources: ["Payments/Tests/**"],
-      dependencies: [
-        .target(name: "Payments"),
-        .package(product: "SnapshotTesting")
+        .project(target: "Payments", path: "Payments")
       ]
     ),
     .target(
