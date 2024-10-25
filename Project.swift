@@ -2,6 +2,10 @@ import ProjectDescription
 
 let project = Project(
   name: "TuistTest",
+  packages: [
+    .remote(url: "https://github.com/stripe/stripe-ios-spm", requirement: .exact("23.27.3")),
+    .remote(url: "https://github.com/pointfreeco/swift-snapshot-testing", requirement: .exact("1.17.5")),
+  ],
   targets: [
     .target(
       name: "TuistTest",
