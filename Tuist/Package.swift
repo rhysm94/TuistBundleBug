@@ -14,5 +14,8 @@ let packageSettings = PackageSettings(
 
 let package = Package(
   name: "TuistTest",
-  dependencies: []
+  dependencies: [
+    .package(url: "https://github.com/pointfreeco/swift-snapshot-testing", exact: "1.17.5"),
+    .package(url: "https://github.com/stripe/stripe-ios-spm", exact: "23.27.3")
+  ]
 )
