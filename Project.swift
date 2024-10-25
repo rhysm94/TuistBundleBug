@@ -29,7 +29,17 @@ let project = Project(
       bundleId: "co.rhysmorgan.TuistTest.sharedUI",
       sources: ["SharedUI/Sources/**"],
       dependencies: [
-        .external(name: "Stripe")
+        .package(product: "Stripe")
+      ]
+    ),
+    .target(
+      name: "SharedUITests",
+      destinations: .iOS,
+      product: .unitTests,
+      bundleId: "co.rhysmorgan.TuistTest.SharedUITests",
+      sources: ["SharedUI/Tests/**"],
+      dependencies: [
+        .target(name: "SharedUI")
       ]
     ),
     .target(
@@ -50,7 +60,7 @@ let project = Project(
       sources: ["Payments/Tests/**"],
       dependencies: [
         .target(name: "Payments"),
-        .external(name: "SnapshotTesting")
+        .package(product: "SnapshotTesting")
       ]
     ),
     .target(
